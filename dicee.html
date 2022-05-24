@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dicee</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div class="container">
+      <h1>Refresh Me</h1>
+
+      <div class="dice">
+        <p>Player 1</p>
+        <img class="img1" src="">
+      </div>
+
+      <div class="dice">
+        <p>Player 2</p>
+        <img class="img2" src="">
+      </div>
+        <div style="padding: 50px;">
+          <button class="roll" onclick="setimage()" style="background-color: aqua;  padding: 20px;">Roll Dice</button>
+        </div>
+    </div>
+
+<script>
+  function diceroll() { 
+    return ((Math.floor(Math.random() * 6)) + 1);
+  }
+
+  document.querySelector(".roll").addEventListener("click",setimage);
+  document.onload = setimage()
+  function setimage(){
+    roll1 = diceroll();
+    roll2 = diceroll();
+    img_src1= "images/dice" + roll1  + ".png";
+    img_src2= "images/dice" + roll2  + ".png";
+    document.querySelector(".img2").setAttribute("src",img_src1);
+    document.querySelector(".img1").setAttribute("src",img_src2);
+    if (roll1 < roll2){
+      document.querySelector("h1").innerHTML="Player 1 wins";
+    }
+    else if(roll1 > roll2){
+      document.querySelector("h1").innerHTML="Player 2 wins";
+    }
+    else{
+      document.querySelector("h1").innerHTML="It's a tie";
+    }
+  }
+</script>
+  </body>
+
+  <footer>
+     🎲 YinoIT 🎲 
+  </footer>
+</html>
